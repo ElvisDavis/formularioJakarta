@@ -40,7 +40,7 @@
         <!--Select del Lenguaje de programación -->
         <div>
             <label for="lenguajes">Lenguajes de programación </label>
-            <siv>
+            <div>
                 <select name="lenguajes" id="lenguajes" multiple>
                     <option value="Java" selected>Java SE</option>
                     <option value="jakartaee" selected>Jakarta EE</option>
@@ -48,8 +48,48 @@
                     <option value="javaScript">JavaScript</option>
                     <option value="angular">Angular</option>
                 </select>
-            </siv>
+            </div>
+        </div>
 
+        <!--Checkbox para roles-->
+        <div>
+            <label>Roles</label>
+            <div>
+                <input type="checkbox" name="roles" value="ROLE_ADMIN">
+                <label >Administrador</label>
+            </div>
+            <div>
+                <input type="checkbox" name="roles" value="ROLE_USER" checked>
+                <label>Usuario</label>
+            </div>
+            <div>
+                <input type="checkbox" name="roles" value="ROLE_DIGI">
+                <label>Digitador</label>
+            </div>
+        </div>
+
+        <!--Radio buttons idiomas-->
+        <div>
+            <label>Idiomas</label>
+            <div>
+                <input type="radio" name="idioma" value="es">
+                <label>Español</label>
+            </div>
+            <div>
+                <input type="radio" name="idioma" value="en">
+                <label>Ingles</label>
+            </div>
+            <div>
+                <input type="radio" name="idioma" value="ru">
+                <label for="">RUSO</label>
+            </div>
+        </div>
+        <!--Checkbox para habilitar el usuario-->
+        <div>
+            <label for="habilitar">Habilitar</label>
+            <div>
+                <input type="checkbox" name="habilitar" id="habilitar" checked>
+            </div>
         </div>
         <div>
             <input type="submit" value="Enviar">
