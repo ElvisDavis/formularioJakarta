@@ -1,11 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <%--Importamos la biblioteca map--%>
 <%@page import="java.util.Map" %>
 
 <%--Implementamos un scriplet--%>
 <%
-Map<String, String> errores= (Map<String, String>)request.getAttribute("errores");
+    Map<String, String> errores = (Map<String, String>) request.getAttribute("errores");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,19 +19,21 @@ Map<String, String> errores= (Map<String, String>)request.getAttribute("errores"
 <%--Implementamos una condición para saber si errores esta vacio o no --%>
 
 <%
-if(errores != null && errores.size()>0){
+    if (errores != null && errores.size() > 0) {
 %>
 <ul>
     <%
         //listamos los errores que tenemos
-        for (String error: errores.values()) {%>
-            <li><%=error%></li>
+        for (String error : errores.values()) {
+    %>
+            <li>
+                <%=error%>
+            </li>
 
-     <%   }%>
+    <% }%>
 </ul>
 <%}%>
 
-</ul>
 
 <div>
     <form action="/formulario/registro" method="post">
@@ -39,8 +41,8 @@ if(errores != null && errores.size()>0){
             <label for="usuario">Usuario</label>
             <input name="username" type="text" id="usuario" placeholder="Ingres el usuario">
             <%
-                if(errores !=null & errores.containsKey("username")){
-                    out.println("<div style='color:red;'>"+errores.get("username")+"</div>");
+                if (errores != null & errores.containsKey("username")) {
+                    out.println("<div style='color:red;'>" + errores.get("username") + "</div>");
                 }
             %>
         </div>
@@ -87,7 +89,7 @@ if(errores != null && errores.size()>0){
             <label>Roles</label>
             <div>
                 <input type="checkbox" name="roles" value="ROLE_ADMIN">
-                <label >Administrador</label>
+                <label>Administrador</label>
             </div>
             <div>
                 <input type="checkbox" name="roles" value="ROLE_USER" checked>
