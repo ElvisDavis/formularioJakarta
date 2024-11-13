@@ -1,3 +1,12 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%--Importamos la biblioteca map--%>
+<%@page import="java.util.Map" %>
+
+<%--Implementamos un scriplet--%>
+<%
+Map<String, String> errores= (Map<String, String>)request.getAttribute("errores");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +16,33 @@
 <body>
 <h1>Manejo de formularios</h1>
 
+<%--Implementamos una condición para saber si errores esta vacio o no --%>
+
+<%
+if(errores != null && errores.size()>0){
+%>
+<ul>
+    <%
+        //listamos los errores que tenemos
+        for (String error: errores.values()) {%>
+            <li><%=error%></li>
+
+     <%   }%>
+</ul>
+<%}%>
+
+</ul>
+
 <div>
     <form action="/formulario/registro" method="post">
         <div>
             <label for="usuario">Usuario</label>
             <input name="username" type="text" id="usuario" placeholder="Ingres el usuario">
+            <%
+                if(errores !=null & errores.containsKey("username")){
+                    out.println("<div style='color:red;'>"+errores.get("username")+"</div>");
+                }
+            %>
         </div>
         <div>
             <label for="password">Password</label>
@@ -81,7 +112,7 @@
             </div>
             <div>
                 <input type="radio" name="idioma" value="ru">
-                <label for="">RUSO</label>
+                <label>RUSO</label>
             </div>
         </div>
         <!--Checkbox para habilitar el usuario-->
